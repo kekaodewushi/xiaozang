@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/xiaozang.iml" filepath="$PROJECT_DIR$/xiaozang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xiaozang-core/xiaozang-core.iml" filepath="$PROJECT_DIR$/xiaozang-core/xiaozang-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xiaozang-web/xiaozang-web.iml" filepath="$PROJECT_DIR$/xiaozang-web/xiaozang-web.iml" />
+    </modules>
+  </component>
+</project>

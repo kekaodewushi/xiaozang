@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="xiaozang-web:war">
+    <output-path>$PROJECT_DIR$/xiaozang-web/target</output-path>
+    <root id="archive" name="xiaozang-web-0.0.1.war">
+      <element id="artifact" artifact-name="xiaozang-web:war exploded" />
+    </root>
+  </artifact>
+</component>

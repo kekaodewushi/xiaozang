@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						   http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/mvc 
+	                       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	                       http://www.springframework.org/schema/aop
+						   http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy expose-proxy="true"/>
+
+    <context:component-scan base-package="com.xiaozang" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper" ref="jacksonObjectMapper"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <bean id="jacksonObjectMapper" class="com.xiaozang.serialization.JacksonObjectMapper"/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="150000000" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+
+    <import resource="service-provider.xml" />
+
+    <mvc:default-servlet-handler/>
+    <mvc:view-controller path="/" view-name="redirect_home.jsp"/>
+</beans>
